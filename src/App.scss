@@ -1,0 +1,36 @@
+@import "./constants/colors";
+
+body {
+  background-color: $darkBlue;
+}
+
+#root {
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+.App {
+  text-align: center;
+  color: #fff;
+}
+
+.App input, .App label {
+  color: #fff !important;
+}
+
+.MuiSvgIcon-root {
+  color: #fff !important;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #fff !important;
+
+}
+
+.MuiOutlinedInput-notchedOutline  {
+  border-color: #fff !important;
+}
+
+

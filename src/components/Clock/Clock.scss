@@ -1,0 +1,11 @@
+@import "../../constants/colors";
+
+.sc-bwzfXH {
+    box-shadow: 0 0 30px 10px $shadowBlue, 0 0 150px 20px $shadowBlue;
+    background: linear-gradient(to bottom, $secondaryBlue, $primaryBlue);
+
+}
+
+.sc-htpNat {
+     background: linear-gradient(to bottom, $borderBlue 20%, $shadowBlue);
+}
