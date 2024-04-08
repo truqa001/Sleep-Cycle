@@ -4,7 +4,8 @@ import dayjs from "dayjs";
 import { AppContextType, useAppContext } from "src/AppContext";
 
 export const Inputs = () => {
-  const { setMinutesToSleep, setPeriods } = useAppContext() as AppContextType;
+  const { setMinutesToSleep, setPeriods, minutesToSleep } =
+    useAppContext() as AppContextType;
 
   return (
     <FormControl fullWidth className="max-w-[500px]">
@@ -12,7 +13,6 @@ export const Inputs = () => {
         required
         id="outlined-required"
         label="Periods"
-        defaultValue="5"
         type="nu"
         style={{ margin: "15px 0" }}
         inputProps={{ inputMode: "numeric" }}
@@ -24,12 +24,13 @@ export const Inputs = () => {
             e.target.value = "";
           }
         }}
+        placeholder="Suggested a cycle of 5"
       />
 
       <MobileTimePicker
         label="Time taken to sleep (minutes)"
         onChange={(newValue: any) => setMinutesToSleep(newValue.$m)}
-        defaultValue={dayjs().set("minute", 15)}
+        defaultValue={dayjs().set("minute", minutesToSleep)}
         views={["minutes"]}
       />
     </FormControl>

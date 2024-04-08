@@ -30,8 +30,8 @@ export const manifestForPlugin: Partial<VitePWAOptions> = {
     theme_color: "#120a39",
     background_color: "#1d3551",
     display: "standalone",
-    scope: "/",
-    start_url: "/",
+    scope: "/SleepCycle/",
+    start_url: "/SleepCycle",
     orientation: "portrait",
   },
 };

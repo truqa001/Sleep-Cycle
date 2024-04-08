@@ -26,7 +26,7 @@ export const AppContextProvider = ({
   children: ReactElement;
 }) => {
   const [minutesToSleep, setMinutesToSleep] = useState<number>(15);
-  const [periods, setPeriods] = useState<string>("5");
+  const [periods, setPeriods] = useState<string>("0");
   const [wakeUpTime, setWakeUpTime] = useState<Dayjs>();
 
   useEffect(() => {
@@ -41,7 +41,9 @@ export const AppContextProvider = ({
   }, [periods]);
 
   useEffect(() => {
-    calculateSleepCycle();
+    if (minutesToSleep && periods !== "0") {
+      calculateSleepCycle();
+    }
   }, [minutesToSleep, periods]);
 
   const calculateSleepCycle = () => {
