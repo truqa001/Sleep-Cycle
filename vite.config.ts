@@ -5,36 +5,26 @@ import { VitePWA } from "vite-plugin-pwa";
 import { VitePWAOptions } from "vite-plugin-pwa";
 
 export const manifestForPlugin: Partial<VitePWAOptions> = {
-  registerType: "prompt",
+  registerType: "autoUpdate",
   includeAssets: ["favicon.ico", "apple-touc-icon.png", "masked-icon.svg"],
+  workbox: {
+    globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
+  },
+  injectRegister: "auto",
   manifest: {
     name: "Sleep Cycle",
     short_name: "Sleep Cycle",
     description: "A simple sleep cycle calculator",
     icons: [
       {
-        src: "/public/manifest-icon-192.maskable.png",
+        src: "android-chrome-192x192.png",
         sizes: "192x192",
         type: "image/png",
-        purpose: "any",
       },
       {
-        src: "/public/manifest-icon-192.maskable.png",
-        sizes: "192x192",
-        type: "image/png",
-        purpose: "maskable",
-      },
-      {
-        src: "/public/manifest-icon-512.maskable.png",
+        src: "android-chrome-512x512.png",
         sizes: "512x512",
         type: "image/png",
-        purpose: "any",
-      },
-      {
-        src: "/public/manifest-icon-512.maskable.png",
-        sizes: "512x512",
-        type: "image/png",
-        purpose: "maskable",
       },
     ],
     theme_color: "#120a39",
@@ -48,7 +38,7 @@ export const manifestForPlugin: Partial<VitePWAOptions> = {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // base: "/portfolio/",
+  base: "/SleepCycle/",
   plugins: [react(), VitePWA(manifestForPlugin)],
   // ** In order to make tailwind classes work, apply these lines
   css: {
@@ -60,6 +50,7 @@ export default defineConfig({
     alias: {
       src: "/src",
       ["@components"]: "/src/components",
+      public: "/public",
     },
   },
 });
